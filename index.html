@@ -1,13 +1,14 @@
 <html>
 <header>
-  <title>AppSpesa</title>
+  <title>Party Buying</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </header>
 <body>
   <div ng-app="" ng-controller="groupController">
     <h3>Grouppi di spesa</h3>
     <p ng-repeat="item in group">
       nome: <input type="text" ng-model="item.name">
-      prezzo: <input type="text" ng-model="item.price">
+      prezzo: <input type="text" ng-model="item.price" ng-change="calculate()">
     </p>
     <button ng-click="addGroup()">Add Group</button>
     <button ng-click="removeGroup()">Remove Group</button>

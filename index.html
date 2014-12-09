@@ -1,0 +1,45 @@
+<html>
+<header>
+  <title>AppSpesa</title>
+</header>
+<body>
+  <div ng-app="" ng-controller="groupController">
+    <h3>Grouppi di spesa</h3>
+    <p ng-repeat="item in group">
+      nome: <input type="text" ng-model="item.name">
+      prezzo: <input type="text" ng-model="item.price">
+    </p>
+    <button ng-click="addGroup()">Add Group</button>
+    <button ng-click="removeGroup()">Remove Group</button>
+    <h3>Persone</h3>
+    <table>
+      <tr>
+      <td>Nomi</td>
+      <td ng-repeat="item in group" ng-bind="item.name"></td>
+      </tr>
+      <tr ng-repeat="(pKey,p) in people">
+          <td><input ng-model="p.name"> </td>
+          <td ng-repeat="(itemKey,item) in group">
+            <input type = "checkbox" ng-model="p.groups[itemKey]" ng-change="calculate()">
+          </td>
+          <td ng-bind="p.price"></td>
+      </tr>
+    </table>
+    <button ng-click="addPerson()">Add Person</button>
+    <button ng-click="removePerson()">Remove Person</button>
+    <!--
+      <p ng-repeat="x in people">
+        <span ng-bind="x.name"></span>
+        <span ng-bind="x.price"></span>
+        {{ x.groups }}
+        <p ng-repeat="p in (x.groups)">
+          <span ng-bind="p"></span>
+        </p>
+      </p>
+    <button ng-click="calculate()">calcola</button>
+  -->
+  </div>
+  <script src="./main.js"></script>
+  <script src="./lib/angular.min.js"></script>
+</body>
+</html

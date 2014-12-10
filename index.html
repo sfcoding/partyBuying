@@ -4,31 +4,66 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </header>
 <body>
-  <div ng-app="" ng-controller="groupController">
-    <h3>Grouppi di spesa</h3>
-    <p ng-repeat="item in group">
-      nome: <input type="text" ng-model="item.name">
-      prezzo: <input type="text" ng-model="item.price" ng-change="calculate()">
-    </p>
-    <button ng-click="addGroup()">Add Group</button>
-    <button ng-click="removeGroup()">Remove Group</button>
-    <h3>Persone</h3>
-    <table>
-      <tr>
-      <td>Nomi</td>
-      <td ng-repeat="item in group" ng-bind="item.name"></td>
-      </tr>
-      <tr ng-repeat="(pKey,p) in people">
-          <td><input ng-model="p.name"> </td>
-          <td ng-repeat="(itemKey,item) in group">
-            <input type = "checkbox" ng-model="p.groups[itemKey]" ng-change="calculate()">
+  <div class="header">
+    <h1>Party Buying - WebApp<h1>
+  </div>
+  <div ng-app="" ng-controller="groupController" class="main">
+    <div class="gruppi">
+      <h3>Grouppi di spesa</h3>
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Costo</th>
+          <th></th>
+        </tr>
+        <tr ng-repeat="(key,item) in group">
+          <td>
+            <input type="text" ng-model="item.name">
           </td>
-          <td ng-bind="p.price"></td>
-      </tr>
-    </table>
-    <button ng-click="addPerson()">Add Person</button>
-    <button ng-click="removePerson()">Remove Person</button>
-    <!--
+          <td>
+            <input class="prezzo" type="text" ng-model="item.price" ng-change="calculate()">
+          </td>
+          <td class="icon">
+            <img ng-src="./img/minus1.png" ng-click="removeGroup(key)"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="icon">
+            <img ng-src="./img/plus1.png" ng-click="addGroup()"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <br/>
+    <div class="persone">
+      <h3>Persone</h3>
+      <table>
+        <tr>
+          <th>Nomi</th>
+          <th ng-repeat="item in group" ng-bind="item.name"></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr ng-repeat="(pKey,p) in people">
+            <td><input ng-model="p.name"> </td>
+            <td ng-repeat="(itemKey,item) in group">
+              <input type = "checkbox" ng-model="p.groups[itemKey]" ng-change="calculate()">
+            </td>
+            <td ng-bind="p.price"></td>
+            <td class="icon">
+              <img ng-src="img/minus1.png" ng-click="removePerson(pKey)" />
+            </td>
+        </tr>
+        <tr>
+          <td colspan="200", class="icon">
+            <img ng-src="./img/plus1.png" ng-click="addPerson()"></img>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+      <!--
       <p ng-repeat="x in people">
         <span ng-bind="x.name"></span>
         <span ng-bind="x.price"></span>

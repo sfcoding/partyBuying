@@ -19,18 +19,16 @@ function groupController($scope){
     });
   };
 
-  $scope.removeGroup = function(){
-    $scope.group.pop();
-  };
-
-  $scope.removePerson = function(){
-    $scope.people.pop();
-  };
-
-  $scope.changeCheck = function(nPeople,nItem){
+  $scope.removeGroup = function(index){
+    $scope.group.splice(index,1);
     $scope.calculate();
   };
-  
+
+  $scope.removePerson = function(index){
+    $scope.people.splice(index,1);
+    $scope.calculate();
+  };
+
   $scope.addGroup();
   $scope.addPerson();
 

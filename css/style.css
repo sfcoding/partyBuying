@@ -1,0 +1,67 @@
+body{
+  text-align:center;
+}
+.main{
+  margin: 0 auto;
+  display: table;
+}
+
+.header{
+  border-bottom:2px solid green;
+  margin-bottom: 30px;
+  font-family:sans-serif;
+}
+
+.icon{
+  text-align: center;
+
+}
+.icon img{
+  width:20px;
+  height:auto;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: lightgrey;
+  margin:0 auto;
+}
+
+.persone td,tr {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+td,tr{
+  padding: 5px;
+}
+
+tr:first-child{
+  border-bottom: 1px solid #999;
+  border-top:black;
+}
+tr{
+  border-top:1px solid #999;
+}
+
+th:first-child{
+  border-right:1px solid #DDD;
+  border-left:black;
+}
+th{
+  border-left:1px solid white;
+}
+
+.gruppi{
+    width: 500px;
+    margin:0 auto;
+}
+
+.prezzo{
+  width: 50px;
+}
+
+th {
+  background-color: green;
+  color: white;
+}

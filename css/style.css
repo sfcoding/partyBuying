@@ -27,12 +27,12 @@ table {
   margin:0 auto;
 }
 
-.persone td,tr {
+.persone td,tr,th{
   padding-left: 8px;
   padding-right: 8px;
 }
 
-td,tr{
+td,tr,th{
   padding: 5px;
 }
 

@@ -21,7 +21,7 @@
             <input type="text" ng-model="item.name">
           </td>
           <td>
-            <input class="prezzo" type="text" ng-model="item.price" ng-change="calculate()">
+            <input class="prezzo" type="number" step="0.01" ng-model="item.price" ng-change="calculate();">
           </td>
           <td class="icon">
             <img ng-src="./img/minus1.png" ng-click="removeGroup(key)"/>
@@ -41,16 +41,16 @@
       <table>
         <tr>
           <th>Nomi</th>
-          <th ng-repeat="item in group" ng-bind="item.name"></th>
-          <th></th>
+          <th ng-repeat="item in group" ng-bind="item.name" ng-hide="item.name==''"></th>
+          <th>Costo</th>
           <th></th>
         </tr>
         <tr ng-repeat="(pKey,p) in people">
             <td><input ng-model="p.name"> </td>
-            <td ng-repeat="(itemKey,item) in group">
+            <td ng-repeat="(itemKey,item) in group" ng-hide="item.name==''">
               <input type = "checkbox" ng-model="p.groups[itemKey]" ng-change="calculate()">
             </td>
-            <td ng-bind="p.price"></td>
+            <td ng-bind="p.price | currency:'&euro;'"></td>
             <td class="icon">
               <img ng-src="img/minus1.png" ng-click="removePerson(pKey)" />
             </td>

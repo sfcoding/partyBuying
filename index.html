@@ -27,8 +27,10 @@
             <img ng-src="./img/minus1.png" ng-click="removeGroup(key)"/>
           </td>
         </tr>
-        <tr>
-          <td colspan="3">Totale spesa: {{ total | currency:'&euro;' }}</td>
+        <tr class="parziali">
+          <th>Totale spesa</th>
+          <td ng-bind="total | currency:'&euro;'"></td>
+          <td></td>
         </tr>
         <tr>
           <td colspan="3" class="icon">
@@ -58,8 +60,18 @@
               <img ng-src="img/minus1.png" ng-click="removePerson(pKey)" />
             </td>
         </tr>
-        <tr>
-          <td colspan="200">Totale persone: {{ people.length }}</td>
+        <tr class="parziali">
+          <th>Parziali</th>
+          <td ng-repeat="(key,item) in group">
+            <span ng-bind="item.each | currency:'&euro;'" ng-hide="item.name==''"></span>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="parziali">
+          <th>Totale persone</th>
+          <td ng-bind="people.length"></td>
+          <td colspan="200"></td>
         </tr>
         <tr>
           <td colspan="200", class="icon">

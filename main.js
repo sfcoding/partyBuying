@@ -1,6 +1,7 @@
 function groupController($scope){
   $scope.group = [];
   $scope.people = [];
+  $scope.total = 0;
 
 
   $scope.addGroup = function () {
@@ -36,6 +37,7 @@ function groupController($scope){
     var i=0;
     var group = $scope.group;
     var people = $scope.people;
+    $scope.total = 0;
     for(var kg in group){
       var tmp = 0;
       for(var kp in people){
@@ -45,6 +47,7 @@ function groupController($scope){
         }
       }
       group[kg].each = group[kg].price / tmp;
+      $scope.total+=group[kg].price;
       console.log(group[kg].each);
       i++;
     }

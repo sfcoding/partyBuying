@@ -36,7 +36,7 @@ td,tr,th{
   padding: 5px;
 }
 
-.persone td{
+.persone td, .gruppi td{
   text-align:center;
 }
 

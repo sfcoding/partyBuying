@@ -28,6 +28,9 @@
           </td>
         </tr>
         <tr>
+          <td colspan="3">Totale spesa: {{ total | currency:'&euro;' }}</td>
+        </tr>
+        <tr>
           <td colspan="3" class="icon">
             <img ng-src="./img/plus1.png" ng-click="addGroup()"/>
           </td>
@@ -54,6 +57,9 @@
             <td class="icon">
               <img ng-src="img/minus1.png" ng-click="removePerson(pKey)" />
             </td>
+        </tr>
+        <tr>
+          <td colspan="200">Totale persone: {{ people.length }}</td>
         </tr>
         <tr>
           <td colspan="200", class="icon">
